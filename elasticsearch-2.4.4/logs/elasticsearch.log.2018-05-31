@@ -1,0 +1,867 @@
+[2018-05-31 11:18:48,706][WARN ][bootstrap                ] jvm uses the client vm, make sure to run `java` with the server vm for best performance by adding `-server` to the command line
+[2018-05-31 11:18:49,150][INFO ][node                     ] [Nathaniel Essex] version[2.4.4], pid[22936], build[fcbb46d/2017-01-03T11:33:16Z]
+[2018-05-31 11:18:49,152][INFO ][node                     ] [Nathaniel Essex] initializing ...
+[2018-05-31 11:18:50,048][INFO ][plugins                  ] [Nathaniel Essex] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-05-31 11:18:50,138][INFO ][env                      ] [Nathaniel Essex] using [1] data paths, mounts [[DATA (D:)]], net usable_space [432.4gb], net total_space [461.1gb], spins? [unknown], types [NTFS]
+[2018-05-31 11:18:50,140][INFO ][env                      ] [Nathaniel Essex] heap size [998.4mb], compressed ordinary object pointers [unknown]
+[2018-05-31 11:18:53,695][INFO ][node                     ] [Nathaniel Essex] initialized
+[2018-05-31 11:18:53,696][INFO ][node                     ] [Nathaniel Essex] starting ...
+[2018-05-31 11:18:54,746][INFO ][transport                ] [Nathaniel Essex] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-05-31 11:18:54,750][INFO ][discovery                ] [Nathaniel Essex] elasticsearch/5IJ8853-Rbq0ZtUvAmJf_Q
+[2018-05-31 11:18:58,862][INFO ][cluster.service          ] [Nathaniel Essex] new_master {Nathaniel Essex}{5IJ8853-Rbq0ZtUvAmJf_Q}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-05-31 11:18:59,070][INFO ][gateway                  ] [Nathaniel Essex] recovered [1] indices into cluster_state
+[2018-05-31 11:18:59,701][INFO ][http                     ] [Nathaniel Essex] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-05-31 11:18:59,701][INFO ][node                     ] [Nathaniel Essex] started
+[2018-05-31 11:19:00,113][INFO ][cluster.routing.allocation] [Nathaniel Essex] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[blog][2], [blog][2]] ...]).
+[2018-05-31 11:20:31,143][DEBUG][action.admin.indices.mapping.put] [Nathaniel Essex] failed to put mappings on indices [[blog]], type [blog]
+MapperParsingException[No type specified for field [blogId]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:301)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:222)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:118)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:99)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:549)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.applyRequest(MetaDataMappingService.java:257)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.execute(MetaDataMappingService.java:230)
+	at org.elasticsearch.cluster.service.InternalClusterService.runTasksForExecutor(InternalClusterService.java:480)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:784)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,329][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xa26ae7f5, /127.0.0.1:3612 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,330][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xdf6115f8, /127.0.0.1:3613 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,330][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x6a217132, /127.0.0.1:3614 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,330][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x880592cd, /127.0.0.1:3616 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,329][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x4f9fefd1, /127.0.0.1:3617 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,330][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x22557c43, /127.0.0.1:3618 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,330][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xb6eed3b2, /127.0.0.1:3615 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,329][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x7afa9c00, /127.0.0.1:3619 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,359][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x7a876652, /127.0.0.1:3623 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,356][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x4dfc91b8, /127.0.0.1:3625 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,355][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xe98a7fd5, /127.0.0.1:3624 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,354][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xf03b8dd7, /127.0.0.1:3622 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,353][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xae58047b, /127.0.0.1:3621 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:09,351][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x8c267565, /127.0.0.1:3620 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 11:24:25,221][DEBUG][action.admin.indices.mapping.put] [Nathaniel Essex] failed to put mappings on indices [[blog]], type [blog]
+MapperParsingException[No type specified for field [blogId]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:301)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:222)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:118)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:99)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:549)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.applyRequest(MetaDataMappingService.java:257)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.execute(MetaDataMappingService.java:230)
+	at org.elasticsearch.cluster.service.InternalClusterService.runTasksForExecutor(InternalClusterService.java:480)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:784)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x948053a7, /127.0.0.1:3942 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xf59475eb, /127.0.0.1:3939 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xcddc0fb0, /127.0.0.1:3944 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x86426686, /127.0.0.1:3943 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x4251c37c, /127.0.0.1:3946 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x884692f0, /127.0.0.1:3940 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x26c4483a, /127.0.0.1:3945 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,125][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x8cfab94e, /127.0.0.1:3949 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,357][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xd74717cf, /127.0.0.1:3948 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,354][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xb8769d03, /127.0.0.1:3952 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,354][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x986119db, /127.0.0.1:3951 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,354][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x37500d73, /127.0.0.1:3950 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,322][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0xe7f55e66, /127.0.0.1:3947 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:41:51,359][WARN ][transport.netty          ] [Nathaniel Essex] exception caught on transport layer [[id: 0x13e44f86, /127.0.0.1:3941 => /127.0.0.1:9300]], closing connection
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:337)
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:42:33,763][DEBUG][action.admin.indices.mapping.put] [Nathaniel Essex] failed to put mappings on indices [[blog]], type [blog]
+MapperParsingException[No type specified for field [blogId]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:301)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:222)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:118)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:99)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:549)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.applyRequest(MetaDataMappingService.java:257)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.execute(MetaDataMappingService.java:230)
+	at org.elasticsearch.cluster.service.InternalClusterService.runTasksForExecutor(InternalClusterService.java:480)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:784)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:44:40,720][INFO ][bootstrap                ] running graceful exit on windows
+[2018-05-31 21:44:40,732][INFO ][node                     ] [Nathaniel Essex] stopping ...
+[2018-05-31 21:44:41,477][INFO ][node                     ] [Nathaniel Essex] stopped
+[2018-05-31 21:44:41,477][INFO ][node                     ] [Nathaniel Essex] closing ...
+[2018-05-31 21:44:41,553][INFO ][node                     ] [Nathaniel Essex] closed
+[2018-05-31 21:45:15,412][WARN ][bootstrap                ] jvm uses the client vm, make sure to run `java` with the server vm for best performance by adding `-server` to the command line
+[2018-05-31 21:45:15,619][INFO ][node                     ] [Redeemer] version[2.4.4], pid[27292], build[fcbb46d/2017-01-03T11:33:16Z]
+[2018-05-31 21:45:15,619][INFO ][node                     ] [Redeemer] initializing ...
+[2018-05-31 21:45:16,069][INFO ][plugins                  ] [Redeemer] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-05-31 21:45:16,086][INFO ][env                      ] [Redeemer] using [1] data paths, mounts [[DATA (D:)]], net usable_space [431.5gb], net total_space [461.1gb], spins? [unknown], types [NTFS]
+[2018-05-31 21:45:16,086][INFO ][env                      ] [Redeemer] heap size [998.4mb], compressed ordinary object pointers [unknown]
+[2018-05-31 21:45:17,982][INFO ][node                     ] [Redeemer] initialized
+[2018-05-31 21:45:17,982][INFO ][node                     ] [Redeemer] starting ...
+[2018-05-31 21:45:18,829][INFO ][transport                ] [Redeemer] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-05-31 21:45:18,832][INFO ][discovery                ] [Redeemer] elasticsearch/hHr3DN--TD-FMW2WQTtToQ
+[2018-05-31 21:45:22,910][INFO ][cluster.service          ] [Redeemer] new_master {Redeemer}{hHr3DN--TD-FMW2WQTtToQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-05-31 21:45:23,094][INFO ][gateway                  ] [Redeemer] recovered [1] indices into cluster_state
+[2018-05-31 21:45:23,749][INFO ][http                     ] [Redeemer] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-05-31 21:45:23,750][INFO ][node                     ] [Redeemer] started
+[2018-05-31 21:45:24,042][INFO ][cluster.routing.allocation] [Redeemer] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[blog][1]] ...]).
+[2018-05-31 21:45:57,519][INFO ][bootstrap                ] running graceful exit on windows
+[2018-05-31 21:45:57,519][INFO ][node                     ] [Redeemer] stopping ...
+[2018-05-31 21:45:57,576][INFO ][node                     ] [Redeemer] stopped
+[2018-05-31 21:45:57,576][INFO ][node                     ] [Redeemer] closing ...
+[2018-05-31 21:45:57,579][INFO ][node                     ] [Redeemer] closed
+[2018-05-31 21:55:58,418][WARN ][bootstrap                ] jvm uses the client vm, make sure to run `java` with the server vm for best performance by adding `-server` to the command line
+[2018-05-31 21:55:58,632][INFO ][node                     ] [Angel] version[2.4.4], pid[23888], build[fcbb46d/2017-01-03T11:33:16Z]
+[2018-05-31 21:55:58,633][INFO ][node                     ] [Angel] initializing ...
+[2018-05-31 21:55:59,109][INFO ][plugins                  ] [Angel] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-05-31 21:55:59,138][INFO ][env                      ] [Angel] using [1] data paths, mounts [[DATA (D:)]], net usable_space [432.4gb], net total_space [461.1gb], spins? [unknown], types [NTFS]
+[2018-05-31 21:55:59,138][INFO ][env                      ] [Angel] heap size [998.4mb], compressed ordinary object pointers [unknown]
+[2018-05-31 21:56:01,264][INFO ][node                     ] [Angel] initialized
+[2018-05-31 21:56:01,265][INFO ][node                     ] [Angel] starting ...
+[2018-05-31 21:56:02,162][INFO ][transport                ] [Angel] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-05-31 21:56:02,167][INFO ][discovery                ] [Angel] elasticsearch/iW-DEp1_TzKKvmaqehM1Wg
+[2018-05-31 21:56:06,209][INFO ][cluster.service          ] [Angel] new_master {Angel}{iW-DEp1_TzKKvmaqehM1Wg}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-05-31 21:56:06,341][INFO ][gateway                  ] [Angel] recovered [0] indices into cluster_state
+[2018-05-31 21:56:07,047][INFO ][http                     ] [Angel] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-05-31 21:56:07,048][INFO ][node                     ] [Angel] started
+[2018-05-31 21:56:45,208][INFO ][cluster.metadata         ] [Angel] [blog] creating index, cause [api], templates [], shards [5]/[1], mappings []
+[2018-05-31 21:56:45,567][DEBUG][action.admin.indices.mapping.put] [Angel] failed to put mappings on indices [[blog]], type [blog]
+MapperParsingException[No type specified for field [blogId]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:301)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:222)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:118)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:99)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:549)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.applyRequest(MetaDataMappingService.java:257)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.execute(MetaDataMappingService.java:230)
+	at org.elasticsearch.cluster.service.InternalClusterService.runTasksForExecutor(InternalClusterService.java:480)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:784)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-31 21:56:46,679][INFO ][cluster.routing.allocation] [Angel] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[blog][4]] ...]).
+[2018-05-31 21:56:55,508][DEBUG][action.search            ] [Angel] [blog][0], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=taw506pETb-Tqf7TOhIwcg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@19e6940]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:56:55,508][DEBUG][action.search            ] [Angel] [blog][1], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=5clhlEOlQReFc5jZvv3csg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@19e6940] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:56:55,508][DEBUG][action.search            ] [Angel] [blog][3], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=YDXKiGdyScmSblNukGUJCQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@19e6940] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:56:55,508][DEBUG][action.search            ] [Angel] [blog][4], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=GHsf6wdXReuT8ASFt0eTCw]: Failed to execute [org.elasticsearch.action.search.SearchRequest@19e6940] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:56:55,508][DEBUG][action.search            ] [Angel] [blog][2], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=Kj0VraFjQs6yUWi9hjes3Q]: Failed to execute [org.elasticsearch.action.search.SearchRequest@19e6940] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:56:55,510][DEBUG][action.search            ] [Angel] All shards failed for phase: [dfs]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:57:09,596][DEBUG][action.search            ] [Angel] [blog][2], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=Kj0VraFjQs6yUWi9hjes3Q]: Failed to execute [org.elasticsearch.action.search.SearchRequest@135c1a4] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:57:09,604][DEBUG][action.search            ] [Angel] [blog][1], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=5clhlEOlQReFc5jZvv3csg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@135c1a4]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:57:09,597][DEBUG][action.search            ] [Angel] [blog][0], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=taw506pETb-Tqf7TOhIwcg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@135c1a4] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:57:09,597][DEBUG][action.search            ] [Angel] [blog][3], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=YDXKiGdyScmSblNukGUJCQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@135c1a4] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:57:09,596][DEBUG][action.search            ] [Angel] [blog][4], node[iW-DEp1_TzKKvmaqehM1Wg], [P], v[2], s[STARTED], a[id=GHsf6wdXReuT8ASFt0eTCw]: Failed to execute [org.elasticsearch.action.search.SearchRequest@135c1a4] lastShard [true]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:57:09,611][DEBUG][action.search            ] [Angel] All shards failed for phase: [dfs]
+RemoteTransportException[[Angel][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-31 21:58:01,122][INFO ][cluster.metadata         ] [Angel] [blog] create_mapping [blog]
+[2018-05-31 21:58:01,692][INFO ][cluster.metadata         ] [Angel] [blog] update_mapping [blog]
+[2018-05-31 22:01:10,910][INFO ][cluster.metadata         ] [Angel] [blog] update_mapping [blog]

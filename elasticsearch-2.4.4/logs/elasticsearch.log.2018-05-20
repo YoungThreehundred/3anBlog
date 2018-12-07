@@ -1,0 +1,299 @@
+[2018-05-20 22:47:11,709][WARN ][bootstrap                ] jvm uses the client vm, make sure to run `java` with the server vm for best performance by adding `-server` to the command line
+[2018-05-20 22:47:12,403][INFO ][node                     ] [Googam] version[2.4.4], pid[19640], build[fcbb46d/2017-01-03T11:33:16Z]
+[2018-05-20 22:47:12,403][INFO ][node                     ] [Googam] initializing ...
+[2018-05-20 22:47:14,072][INFO ][plugins                  ] [Googam] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-05-20 22:47:14,940][INFO ][env                      ] [Googam] using [1] data paths, mounts [[DATA (D:)]], net usable_space [443gb], net total_space [461.1gb], spins? [unknown], types [NTFS]
+[2018-05-20 22:47:14,941][INFO ][env                      ] [Googam] heap size [998.4mb], compressed ordinary object pointers [unknown]
+[2018-05-20 22:47:25,849][INFO ][node                     ] [Googam] initialized
+[2018-05-20 22:47:25,849][INFO ][node                     ] [Googam] starting ...
+[2018-05-20 22:47:27,344][INFO ][transport                ] [Googam] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-05-20 22:47:27,349][INFO ][discovery                ] [Googam] elasticsearch/6bc9c4lqSTaq-nzIZ7E9eQ
+[2018-05-20 22:47:31,447][INFO ][cluster.service          ] [Googam] new_master {Googam}{6bc9c4lqSTaq-nzIZ7E9eQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-05-20 22:47:31,542][INFO ][gateway                  ] [Googam] recovered [0] indices into cluster_state
+[2018-05-20 22:47:32,536][INFO ][http                     ] [Googam] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-05-20 22:47:32,536][INFO ][node                     ] [Googam] started
+[2018-05-20 22:48:16,191][INFO ][cluster.metadata         ] [Googam] [blog] creating index, cause [api], templates [], shards [5]/[1], mappings []
+[2018-05-20 22:48:16,475][DEBUG][action.admin.indices.mapping.put] [Googam] failed to put mappings on indices [[blog]], type [blog]
+MapperParsingException[No type specified for field [blogId]]
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseProperties(ObjectMapper.java:301)
+	at org.elasticsearch.index.mapper.object.ObjectMapper$TypeParser.parseObjectOrDocumentTypeProperties(ObjectMapper.java:222)
+	at org.elasticsearch.index.mapper.object.RootObjectMapper$TypeParser.parse(RootObjectMapper.java:139)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:118)
+	at org.elasticsearch.index.mapper.DocumentMapperParser.parse(DocumentMapperParser.java:99)
+	at org.elasticsearch.index.mapper.MapperService.parse(MapperService.java:549)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.applyRequest(MetaDataMappingService.java:257)
+	at org.elasticsearch.cluster.metadata.MetaDataMappingService$PutMappingExecutor.execute(MetaDataMappingService.java:230)
+	at org.elasticsearch.cluster.service.InternalClusterService.runTasksForExecutor(InternalClusterService.java:480)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:784)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.runAndClean(PrioritizedEsThreadPoolExecutor.java:231)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:194)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2018-05-20 22:48:17,462][INFO ][cluster.routing.allocation] [Googam] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[blog][4]] ...]).
+[2018-05-20 22:49:34,073][DEBUG][action.search            ] [Googam] [blog][3], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=PA3X4qN0R_mNRWbGMdOw5A]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1610fa5] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:34,074][DEBUG][action.search            ] [Googam] [blog][2], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=PkxZNRWBSvyJqSkAosDp2g]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1610fa5] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:34,073][DEBUG][action.search            ] [Googam] [blog][4], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=OzE7OBbuRb6xzC7RUT5NUQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1610fa5] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:34,073][DEBUG][action.search            ] [Googam] [blog][0], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=gtTLdevVRJiBwiopxFeotA]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1610fa5] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:34,073][DEBUG][action.search            ] [Googam] [blog][1], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=qJbD36GzRkuehJ8k28cL5A]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1610fa5]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:34,077][DEBUG][action.search            ] [Googam] All shards failed for phase: [dfs]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:48,741][DEBUG][action.search            ] [Googam] [blog][4], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=OzE7OBbuRb6xzC7RUT5NUQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192bcf2] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:48,743][DEBUG][action.search            ] [Googam] [blog][0], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=gtTLdevVRJiBwiopxFeotA]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192bcf2] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:48,742][DEBUG][action.search            ] [Googam] [blog][3], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=PA3X4qN0R_mNRWbGMdOw5A]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192bcf2] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:48,741][DEBUG][action.search            ] [Googam] [blog][2], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=PkxZNRWBSvyJqSkAosDp2g]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192bcf2] lastShard [true]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:48,752][DEBUG][action.search            ] [Googam] [blog][1], node[6bc9c4lqSTaq-nzIZ7E9eQ], [P], v[2], s[STARTED], a[id=qJbD36GzRkuehJ8k28cL5A]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192bcf2]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:49:48,753][DEBUG][action.search            ] [Googam] All shards failed for phase: [dfs]
+RemoteTransportException[[Googam][127.0.0.1:9300][indices:data/read/search[phase/dfs]]]; nested: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+Caused by: SearchParseException[failed to parse search source [{"from":0,"size":10,"query":{"bool":{"should":[{"query_string":{"query":"**","fields":["title"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["summary"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["content"],"analyze_wildcard":true}},{"query_string":{"query":"**","fields":["tags"],"analyze_wildcard":true}}]}},"post_filter":{"bool":{"must":[{"bool":{}},{"bool":{}},{"bool":{}}]}},"sort":[{"createTime":{"order":"desc"}},{"createTime":{"order":"desc"}}]}]]; nested: SearchParseException[No mapping found for [createTime] in order to sort on];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:873)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:667)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:633)
+	at org.elasticsearch.search.SearchService.executeDfsPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:360)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchDfsTransportHandler.messageReceived(SearchServiceTransportAction.java:357)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:77)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:378)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: SearchParseException[No mapping found for [createTime] in order to sort on]
+	at org.elasticsearch.search.sort.SortParseElement.addSortField(SortParseElement.java:213)
+	at org.elasticsearch.search.sort.SortParseElement.addCompoundSortField(SortParseElement.java:187)
+	at org.elasticsearch.search.sort.SortParseElement.parse(SortParseElement.java:85)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:856)
+	... 12 more
+[2018-05-20 22:50:16,968][INFO ][cluster.metadata         ] [Googam] [blog] create_mapping [blog]
+[2018-05-20 22:50:17,650][INFO ][cluster.metadata         ] [Googam] [blog] update_mapping [blog]

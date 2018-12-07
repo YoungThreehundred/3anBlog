@@ -1,0 +1,19 @@
+[2018-05-04 14:34:17,710][WARN ][bootstrap                ] jvm uses the client vm, make sure to run `java` with the server vm for best performance by adding `-server` to the command line
+[2018-05-04 14:34:18,065][INFO ][node                     ] [Equinox] version[2.4.4], pid[8908], build[fcbb46d/2017-01-03T11:33:16Z]
+[2018-05-04 14:34:18,065][INFO ][node                     ] [Equinox] initializing ...
+[2018-05-04 14:34:18,586][INFO ][plugins                  ] [Equinox] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2018-05-04 14:34:18,610][INFO ][env                      ] [Equinox] using [1] data paths, mounts [[DATA (D:)]], net usable_space [443.1gb], net total_space [461.1gb], spins? [unknown], types [NTFS]
+[2018-05-04 14:34:18,610][INFO ][env                      ] [Equinox] heap size [998.4mb], compressed ordinary object pointers [unknown]
+[2018-05-04 14:34:20,560][INFO ][node                     ] [Equinox] initialized
+[2018-05-04 14:34:20,560][INFO ][node                     ] [Equinox] starting ...
+[2018-05-04 14:34:21,445][INFO ][transport                ] [Equinox] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2018-05-04 14:34:21,451][INFO ][discovery                ] [Equinox] elasticsearch/fsqhTFQyTVm679laqXvc2Q
+[2018-05-04 14:34:25,488][INFO ][cluster.service          ] [Equinox] new_master {Equinox}{fsqhTFQyTVm679laqXvc2Q}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2018-05-04 14:34:25,577][INFO ][gateway                  ] [Equinox] recovered [0] indices into cluster_state
+[2018-05-04 14:34:26,116][INFO ][http                     ] [Equinox] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2018-05-04 14:34:26,117][INFO ][node                     ] [Equinox] started
+[2018-05-04 15:01:50,467][INFO ][bootstrap                ] running graceful exit on windows
+[2018-05-04 15:01:50,468][INFO ][node                     ] [Equinox] stopping ...
+[2018-05-04 15:01:50,539][INFO ][node                     ] [Equinox] stopped
+[2018-05-04 15:01:50,539][INFO ][node                     ] [Equinox] closing ...
+[2018-05-04 15:01:50,548][INFO ][node                     ] [Equinox] closed
